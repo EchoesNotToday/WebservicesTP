@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+</head>
+<body>
+<h1><%= title %></h1>
+<form action="/book" method="post" class="form-add-book">
+    <div class="form-example">
+        <label for="author">Title : </label>
+        <input type="text" name="title" id="title" required>
+    </div>
+    <div class="form-add-book">
+        <label for="author">Author : </label>
+        <input type="text" name="author" id="author" required>
+    </div>
+    <div class="form-add-book">
+        <input type="submit" value="Add">
+    </div>
+</form>
+</table>
+<a href="/">back</a>
+</body>
+</html>

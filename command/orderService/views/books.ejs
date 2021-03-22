@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+</head>
+<body>
+<h1><%= title %></h1>
+<table>
+    <thead>
+    <tr>
+        <th>Book Id</th>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Stock</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <%
+    var bookCollection = '';
+    for (i = 0; i < bookList.length; i++) {
+        bookCollection += "<tr>";
+        bookCollection += `<td>${bookList[i].bookId}</td>`;
+        bookCollection += `<td>${bookList[i].bookTitle}</td>`;
+        bookCollection += `<td>${bookList[i].authorName}</td>`;
+        bookCollection += `<td>${bookList[i].bookStock}</td>`;
+        if (parseInt(bookList[i].bookStock) > 0) {
+            bookCollection += `<form method=post action="/orderService/cartmanagement/cart"><input value="${bookList[i].bookId}" type="hidden" name="bookId">`
+            bookCollection += '<td><button type="submit">Add to cart</button></td>';
+            bookCollection += '</form>';
+        }
+        bookCollection += "</tr>";
+    }
+
+    %>
+    <%- bookCollection %>
+    </tbody>
+</table>
+<button>
+    <a href="/orderService/bookmanagement/addBook"> Add Book</a>
+</button>
+</body>
+</html>
